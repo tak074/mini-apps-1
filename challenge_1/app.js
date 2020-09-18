@@ -77,9 +77,7 @@ function checkMinorDiag(board){
 
 
 function reset(nextStart = 'O') {
-  console.log(nextStart);
   nextTurn = nextStart === 'X'? nextStart = 'O' : nextStart = 'X';
-  console.log(nextTurn);
   board = [['','',''], ['','',''], ['','','']];
   let cells = document.getElementsByClassName("cell");
   // alert('RESET');
