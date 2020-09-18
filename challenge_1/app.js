@@ -20,6 +20,7 @@ function checkWinner(board){
 
   if (!!winner) {
     alert(winner + 'is the Baddest');
+    reset(winner);
   }
 };
 
@@ -75,8 +76,10 @@ function checkMinorDiag(board){
 };
 
 
-function reset() {
-  nextTurn = 'O';
+function reset(nextStart = 'O') {
+  console.log(nextStart);
+  nextTurn = nextStart === 'X'? nextStart = 'O' : nextStart = 'X';
+  console.log(nextTurn);
   board = [['','',''], ['','',''], ['','','']];
   let cells = document.getElementsByClassName("cell");
   // alert('RESET');
