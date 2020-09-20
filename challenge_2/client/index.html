@@ -11,15 +11,15 @@
       $("form").submit(function(event){
         event.preventDefault();
         var fd = new FormData($("form").get(0));
-        console.log(event);
-        console.log(fd);
         $.ajax({
           type: "POST",
           url: '/',
           data: fd,
-          dataType: 'JSON',
+          datatype: 'formdata',
+          processData: false,
+          contentType: false,
           success: function(result) {
-            console.log(result);
+            $("#output").html(`${result}`);
           },
           error: function(xhr, status, error) {
             console.log('Error: ', error.message);
@@ -37,6 +37,8 @@
     <br><input name='file' id='file' type='file' col='50'></input>
     <button type='submit'>Submit!</button>
   </form>
+  <br>
+  <div id='output'></div>
 </body>
 </html>
 
