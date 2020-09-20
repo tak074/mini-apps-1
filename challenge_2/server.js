@@ -14,16 +14,17 @@ App.use(express.json());
 App.use(express.urlencoded({extended: true}));
 
 App.post('/', upload.single('file'), (req, res) => {
-
-  fs.readFile(req.file.path, 'utf8', (err, data) => {
-    if (err) {
-      throw err;
-    }
-    // data = JSON.parse(data);
-    let csvContent  = csv.csvConverter(data);
-    res.send(csvContent);
-    res.status(200);
-  });
+  console.log(req);
+  res.send('received');
+  // fs.readFile(req.file.path, 'utf8', (err, data) => {
+  //   if (err) {
+  //     throw err;
+  //   }
+  //   // data = JSON.parse(data);
+  //   let csvContent  = csv.csvConverter(data);
+  //   res.send(csvContent);
+  //   res.status(200);
+  // });
 })
 
 App.listen(port,() => {

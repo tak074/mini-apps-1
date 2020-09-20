@@ -6,13 +6,36 @@
   <title>CSV Report Generator</title>
   <script src='app.js'></script>
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("form").submit(function(event){
+        event.preventDefault();
+        var fd = new FormData($("form").get(0));
+        console.log(event);
+        console.log(fd);
+        $.ajax({
+          type: "POST",
+          url: '/',
+          data: fd,
+          dataType: 'JSON',
+          success: function(result) {
+            console.log(result);
+          },
+          error: function(xhr, status, error) {
+            console.log('Error: ', error.message);
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <div id='title'>CSV Report Generator</div><br>
-  <form onsubmit="handleSubmit()" action='/' method='POST' enctype="multipart/form-data">
+  <form enctype="multipart/form-data">
+  <!-- <form onsubmit="handleSubmit()" action='/' method='POST' enctype="multipart/form-data"> -->
     <label >JSON file: </label><br>
     <br><input name='file' id='file' type='file' col='50'></input>
-    <input type='submit'>
+    <button type='submit'>Submit!</button>
   </form>
 </body>
 </html>
