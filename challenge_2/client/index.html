@@ -32,13 +32,14 @@
 <body>
   <div id='title'>CSV Report Generator</div><br>
   <form enctype="multipart/form-data">
-  <!-- <form onsubmit="handleSubmit()" action='/' method='POST' enctype="multipart/form-data"> -->
+  <!-- <form action='/' method='POST' enctype="multipart/form-data"> -->
     <label >JSON file: </label><br>
     <br><input name='file' id='file' type='file' col='50'></input>
     <button type='submit'>Submit!</button>
   </form>
   <br>
   <div id='output'></div>
+  <button id='download' onclick="download()">Download</button>
 </body>
 </html>
 

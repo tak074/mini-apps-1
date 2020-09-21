@@ -1,11 +1,10 @@
-// const $ = require('jquery');
 
-function handleSubmit() {
-  console.log('inside hanlde Submit');
-  console.log(document.getElementById("file"));
-  // alert('hoy');
-  // var file = document.getElementById('file').files[0];
-  // console.log('file', file);
-
+function download() {
+  let csv = document.getElementById('output').innerHTML;
+  var hiddenElement = document.createElement('a');
+  hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+  hiddenElement.target = '_blank';
+  hiddenElement.download = 'file.csv';
+  hiddenElement.click();
 }
 
